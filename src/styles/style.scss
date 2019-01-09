@@ -1,0 +1,17 @@
+@import 'config';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  background: #333;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@import 'navbar';
