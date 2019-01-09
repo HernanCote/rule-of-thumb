@@ -4,12 +4,16 @@
   height: 2.5rem;
   margin: 2.5rem 2rem;
   align-items: center;
-  color: $white-color;
+  color: $white-secondary;
 
   .branding {
     margin-left: 2.2rem;
     margin-right: auto;
     font-size: 1.9rem;
+
+    &:hover {
+      @include hoverWhite;
+    }
   }
 
   .nav__item {
@@ -17,6 +21,10 @@
     &:nth-child(5) {
       margin-left: 0;
       font-size: 1.5rem;
+    }
+
+    &:hover {
+      @include hoverWhite;
     }
   }
 }

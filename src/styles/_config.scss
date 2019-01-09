@@ -1,3 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-$white-color: #f1f1f1;
+$white: #fff;
+$white-secondary: #f1f1f1;
+
+@mixin hoverWhite {
+  cursor: pointer;
+  color: $white;
+}
