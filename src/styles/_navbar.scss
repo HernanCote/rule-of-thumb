@@ -2,9 +2,9 @@
   display: flex;
   list-style: none;
   height: 2.5rem;
-  margin: 2.5rem 2rem;
+  margin: 2.5rem 6rem;
   align-items: center;
-  color: $white-secondary;
+  color: darken($white, 20);
 
   .branding {
     margin-left: 2.2rem;
@@ -12,19 +12,22 @@
     font-size: 1.9rem;
 
     &:hover {
+      @include easeOut;
       @include hoverWhite;
     }
   }
 
   .nav__item {
     margin: 0 2rem;
-    &:nth-child(5) {
-      margin-left: 0;
-      font-size: 1.5rem;
-    }
 
     &:hover {
+      @include easeOut;
       @include hoverWhite;
+    }
+
+    &.search {
+      margin-left: 1.5rem;
+      font-size: 1.5rem;
     }
   }
 }

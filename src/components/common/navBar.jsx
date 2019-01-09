@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class NavBar extends Component {
   render() {
     return (
       <ul className='navbar'>
-        <li className='branding'>Rule of Thumb.</li>
-        <li className='nav__item'>Past Trials</li>
-        <li className='nav__item'>How It Works</li>
-        <li className='nav__item'>Log In / Sign Up</li>
-        <li className='nav__item'>
+        {this.props.navitems.map(item => (
+          <li key={item.content} className={item.class}>
+            {item.content}
+          </li>
+        ))}
+        <li className='nav__item search'>
           <i className='fas fa-search' />
         </li>
       </ul>
     );
   }
 }
+
+NavBar.propTypes = {
+  navitems: PropTypes.object.isRequired
+};
 
 export default NavBar;
