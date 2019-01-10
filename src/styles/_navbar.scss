@@ -1,33 +1,56 @@
 .navbar {
-  display: flex;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
+  opacity: 0.6;
+  position: fixed;
   list-style: none;
-  height: 2.5rem;
-  margin: 2.5rem 6rem;
-  align-items: center;
-  color: darken($white, 20);
+  height: 100px;
 
-  .branding {
-    margin-left: 2.2rem;
-    margin-right: auto;
-    font-size: 1.9rem;
+  &__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 3rem;
 
-    &:hover {
-      @include easeOut;
-      @include hoverWhite;
+    .space {
+      flex: 1;
     }
   }
 
-  .nav__item {
-    margin: 0 2rem;
+  &__branding {
+    margin-left: 1rem;
+    a {
+      color: darken($white, 20);
+      font-size: 1.9rem;
+      text-decoration: none;
+      &:hover {
+        @include easeOut;
+        @include hoverWhite;
+      }
+    }
+  }
 
-    &:hover {
-      @include easeOut;
-      @include hoverWhite;
+  &_navigation-items {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li {
+        padding: 0 1rem;
+      }
     }
 
-    &.search {
-      margin-left: 1.5rem;
-      font-size: 1.5rem;
+    a {
+      text-decoration: none;
+      color: darken($white, 20);
+
+      &:hover,
+      &:active {
+        @include easeOut;
+        @include hoverWhite;
+      }
     }
   }
 }

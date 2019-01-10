@@ -6,12 +6,19 @@
   margin: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Lato', sans-serif;
-  color: #fff;
-  background: #333;
   width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
 @import 'navbar';
+@import 'drawerToggleButton';
+@import 'sideDrawer';
+@import 'backdrop';
+@import 'mobile';

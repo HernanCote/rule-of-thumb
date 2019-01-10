@@ -1,0 +1,41 @@
+//Widescreens
+@include mediaXL {
+  .navbar {
+    &__toggle-button {
+      display: none;
+    }
+
+    &__branding {
+      margin-left: 0;
+    }
+  }
+}
+//Desktop and Laptops
+@include mediaLg {
+  .navbar {
+    &__toggle-button {
+      display: none;
+    }
+
+    &__branding {
+      margin-left: 0;
+    }
+  }
+
+  .side-drawer {
+    display: none;
+  }
+}
+
+//Tablets small laptops
+@include mediaMd {
+  .navbar {
+    &_navigation-items {
+      display: none;
+    }
+  }
+}
+
+//Smartphones
+@include mediaSm {
+}

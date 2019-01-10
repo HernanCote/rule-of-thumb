@@ -1,0 +1,44 @@
+.side-drawer {
+  height: 100%;
+  background: #fff;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  @include easeOut;
+
+  &.open {
+    transform: translateX(0);
+    @include easeOut;
+  }
+
+  ul {
+    margin-left: 1rem;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    &:hover {
+      @include hoverPrimary;
+    }
+
+    &:active {
+      @include hoverPrimary;
+    }
+  }
+}
