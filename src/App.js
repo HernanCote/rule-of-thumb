@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import NavBar from './components/common/navBar';
-import SideDrawer from './components/common/sideDrawer';
-import Backdrop from './components/common/backdrop';
+import React, { Component } from "react";
+import NavBar from "./components/common/navBar";
+import SideDrawer from "./components/common/sideDrawer";
+import Backdrop from "./components/common/backdrop";
+import Main from "./components/main";
 
 class App extends Component {
   state = {
@@ -26,11 +27,11 @@ class App extends Component {
     }
 
     return (
-      <div style={{ height: '100%' }}>
+      <div style={{ height: "100%" }}>
         <NavBar onDrawerToggleClick={this.drawerToggleHandle} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
-        <main />
+        <Main />
       </div>
     );
   }

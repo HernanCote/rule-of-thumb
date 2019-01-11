@@ -1,10 +1,16 @@
 .navbar {
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
+  background: linear-gradient(#000, transparent);
   opacity: 0.6;
   position: fixed;
   list-style: none;
   height: 100px;
+  @include easeOut;
+
+  &.minified {
+    background: #000;
+    height: 80px;
+  }
 
   &__navigation {
     display: flex;
