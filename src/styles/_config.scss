@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700');
 
-$primary-color: rgb(118, 235, 206);
-$secondary-color: rgb(233, 155, 67);
+//Image variables
+$pope-large: url(../assets/pope-large.jpg);
+$pope-medium: url(../assets/pope-medium.jpg);
+
+// Color variables
+$primary-color: rgb(0, 193, 183);
+$secondary-color: rgb(232, 157, 0);
 $white: #fff;
+$black: #333;
+$wide-left-right-padding: 10rem;
+$small-left-right-padding: 1rem;
 
 @mixin hoverWhite {
   cursor: pointer;
@@ -12,6 +20,14 @@ $white: #fff;
 @mixin hoverPrimary {
   cursor: pointer;
   color: $secondary-color;
+}
+
+@mixin lightFont {
+  font-weight: lighter;
+}
+
+@mixin bolderFont {
+  font-weight: bolder;
 }
 
 @mixin easeOut {

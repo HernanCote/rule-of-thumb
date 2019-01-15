@@ -29,13 +29,77 @@
 
 //Tablets small laptops
 @include mediaMd {
+  .container {
+    margin: 0 $small-left-right-padding;
+  }
+
   .navbar {
     &_navigation-items {
       display: none;
     }
+
+    &__navigation {
+      padding: 0 $small-left-right-padding;
+    }
+  }
+
+  .head {
+    background: $pope-medium;
+    background: cover;
+    &__box {
+      display: block;
+      margin: 0 $small-left-right-padding;
+    }
+
+    &__box {
+      left: $small-left-right-padding;
+    }
+  }
+
+  .head-box {
+    width: 90%;
+  }
+
+  .information-box {
+    display: none;
   }
 }
 
 //Smartphones
 @include mediaSm {
+  .container {
+    margin: 0;
+  }
+
+  .head {
+    background: $pope-medium;
+    background: cover no-repeat center;
+    height: 80vh;
+    max-width: 100%;
+
+    &__box {
+      top: 5rem;
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  .head-box {
+    width: 100%;
+    height: auto;
+
+    &__content {
+      padding: 2rem;
+      .character {
+        font-size: 2.5rem;
+      }
+
+      .veredict {
+        margin: 0;
+      }
+    }
+    &__voting {
+      height: 4.5rem;
+    }
+  }
 }

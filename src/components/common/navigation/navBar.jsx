@@ -1,8 +1,8 @@
 /* eslint no-undef: 0 */
 
-import React, { Component } from "react";
-import DrawerToggleButton from "./drawerToggleButton";
-import { PropTypes } from "prop-types";
+import React, { Component } from 'react';
+import DrawerToggleButton from './drawerToggleButton';
+import { PropTypes } from 'prop-types';
 
 class NavBar extends Component {
   state = {
@@ -10,7 +10,7 @@ class NavBar extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll.bind(this));
+    window.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
   handleScroll = () => {
@@ -23,29 +23,29 @@ class NavBar extends Component {
   render() {
     const { onDrawerToggleClick } = this.props;
     return (
-      <header className={`navbar ${this.state.isMinified ? "minified" : ""}`}>
-        <nav className="navbar__navigation">
-          <div className="navbar__toggle-button">
+      <header className={`navbar ${this.state.isMinified ? 'minified' : ''}`}>
+        <nav className='navbar__navigation'>
+          <div className='navbar__toggle-button'>
             <DrawerToggleButton click={onDrawerToggleClick} />
           </div>
-          <div className="navbar__branding">
-            <a href="">Rule of Thumb.</a>
+          <div className='navbar__branding'>
+            <a href=''>Rule of Thumb.</a>
           </div>
-          <div className="space" />
-          <div className="navbar_navigation-items">
+          <div className='space' />
+          <div className='navbar_navigation-items'>
             <ul>
               <li>
-                <a href="">Past Trials</a>
+                <a href=''>Past Trials</a>
               </li>
               <li>
-                <a href="">How It Works</a>
+                <a href=''>How It Works</a>
               </li>
               <li>
-                <a href="">Login / Sign Up</a>
+                <a href=''>Login / Sign Up</a>
               </li>
               <li>
-                <a href="">
-                  <i className="fas fa-search" />
+                <a href=''>
+                  <i className='fas fa-search' />
                 </a>
               </li>
             </ul>

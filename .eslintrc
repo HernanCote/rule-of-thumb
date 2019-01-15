@@ -2,7 +2,7 @@
   "parser": "babel-eslint",
   "plugins": ["react"],
   "rules": {
-    "max-len": [1, 70, 3, { "ignoreComments": true }],
+    "max-len": [1, 120, 3, { "ignoreComments": true }],
     "quotes": [1, "single", { "allowTemplateLiterals": true }]
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"]

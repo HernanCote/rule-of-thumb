@@ -17,8 +17,24 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  margin: 0 $wide-left-right-padding;
+}
+
+//Pages
+@import 'home';
+
+// Navigation
 @import 'navbar';
 @import 'drawerToggleButton';
 @import 'sideDrawer';
 @import 'backdrop';
+
+//Components
+@import 'components/headOpinionBox';
+@import 'components/informationBox';
+@import 'components/candidateBox';
+@import 'components/votesList';
+
+//Responsive
 @import 'mobile';

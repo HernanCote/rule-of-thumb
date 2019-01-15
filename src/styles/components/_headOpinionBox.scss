@@ -1,0 +1,68 @@
+.head-box {
+  width: 30rem;
+  height: 26rem;
+  color: $white;
+
+  &__content {
+    height: 80%;
+    background: rgba($color: $black, $alpha: 0.7);
+    overflow: hidden;
+    padding: 2rem 4rem 2rem 2rem;
+    @include lightFont;
+
+    .character {
+      font-size: 3.5rem;
+      @include bolderFont;
+      opacity: none;
+    }
+
+    .info {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    .more-info {
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      * {
+        display: inline;
+      }
+      a {
+        margin-left: 0.3rem;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+
+    .veredict {
+      margin: 2rem 0;
+      @include bolderFont;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__voting {
+    display: flex;
+    height: 20%;
+
+    &__thumbs-up {
+      background: $primary-color;
+      opacity: 0.9;
+      flex-basis: 50%;
+    }
+    &__thumbs-down {
+      background: $secondary-color;
+      opacity: 0.9;
+      flex-basis: 50%;
+    }
+
+    .centered {
+      font-size: 2.5rem;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
