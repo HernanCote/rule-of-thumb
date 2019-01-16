@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InformationBox from '../common/informationBox';
 import HeadOpionionBox from '../voting/headOpinionBox';
 import Votes from '../voting/votes';
+import SugestionsBox from '../common/sugestionsBox';
 
 class Home extends Component {
   state = {};
@@ -24,6 +25,9 @@ class Home extends Component {
         </section>
         <section className='home__votes container'>
           <Votes />
+        </section>
+        <section className='home_sugestions container'>
+          <SugestionsBox />
         </section>
       </React.Fragment>
     );

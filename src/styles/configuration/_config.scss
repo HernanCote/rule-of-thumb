@@ -3,6 +3,7 @@
 //Image variables
 $pope-sm: url(../assets/pope-sm.png);
 $pope-medium: url(../assets/pope-medium.png);
+$crowd: url(../assets/crowd.png);
 
 // Color variables
 $primary-color: rgb(0, 193, 183);
@@ -16,6 +17,20 @@ $small-left-right-padding: 1rem;
 
 .container {
   margin: 0 $wide-left-right-padding;
+}
+
+@mixin styledButtonWhite {
+  cursor: pointer;
+  color: $white;
+  background: transparent;
+  border: 2px solid $white;
+}
+
+@mixin styledButtonBlack {
+  cursor: pointer;
+  color: $black;
+  background: transparent;
+  border: 3px solid $black;
 }
 
 @mixin hoverWhite {
