@@ -23,6 +23,11 @@
         grid-gap: 0.5rem;
         grid-template-columns: auto 100%;
 
+        &__veredict {
+          display: flex;
+          margin: auto;
+        }
+
         &__candidate-info {
           div:nth-child(1) {
             font-size: 3rem;
@@ -42,7 +47,38 @@
       }
 
       .interaction {
+        display: flex;
+        justify-content: flex-start;
+
+        align-items: center;
         margin: 0 2rem 2rem 2rem;
+
+        .selected {
+          border: 2px solid $white;
+        }
+
+        .mr {
+          margin-right: 0.6rem;
+        }
+
+        &__up-button {
+          cursor: pointer;
+        }
+
+        &__down-button {
+          cursor: pointer;
+        }
+
+        &__vote-button {
+          cursor: pointer;
+          padding: 0.7rem;
+          color: $white;
+          background: transparent;
+          border: 2px solid $white;
+
+          &:focus {
+          }
+        }
       }
 
       .results {

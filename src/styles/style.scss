@@ -17,10 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  margin: 0 $wide-left-right-padding;
-}
-
 //Pages
 @import 'pages/home';
 
@@ -37,6 +33,7 @@ body {
 @import 'components/voting/votingCard';
 @import 'components/voting/votesList';
 @import 'components/voting/votes';
+@import 'components/voting/voteButton';
 
 //Responsive
 @import 'responsive/mobile';

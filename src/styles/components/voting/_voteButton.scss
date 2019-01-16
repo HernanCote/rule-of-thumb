@@ -1,0 +1,16 @@
+.vote-button {
+  height: 2rem;
+  width: 2rem;
+  background: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.primary {
+    background: $primary-color;
+  }
+
+  &.secondary {
+    background: $secondary-color;
+  }
+}

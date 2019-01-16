@@ -18,6 +18,10 @@
       margin-left: 0;
     }
   }
+
+  .side-drawer {
+    display: none;
+  }
 }
 //Desktop and Laptops
 @include mediaLg {
