@@ -1,5 +1,5 @@
 .candidate-box {
-  height: 35rem;
+  height: 32rem;
   width: 100%;
 
   &__container {
@@ -9,9 +9,73 @@
     background-size: cover;
 
     &__content {
+      color: $white;
       width: 100%;
       height: 100%;
       background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .content-info {
+        margin: 0rem 4rem 1rem 0;
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: auto 100%;
+
+        &__candidate-info {
+          div:nth-child(1) {
+            font-size: 3rem;
+          }
+
+          div:nth-child(2) {
+            @include lightFont;
+            font-size: 0.7rem;
+          }
+
+          div:nth-child(3) {
+            font-size: 1rem;
+            margin: 1rem 0;
+            font-weight: 200;
+          }
+        }
+      }
+
+      .interaction {
+        margin: 0 2rem 2rem 2rem;
+      }
+
+      .results {
+        width: 100%;
+        height: 3rem;
+        display: flex;
+
+        i {
+          margin: 1rem;
+          font-size: 2rem;
+        }
+
+        span {
+          font-size: 2rem;
+          @include lightFont;
+        }
+
+        .approve {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          height: 100%;
+          background: rgba($primary-color, 0.7);
+        }
+
+        .dissapprove {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          height: 100%;
+          background: rgba($secondary-color, 0.7);
+        }
+      }
     }
   }
 }

@@ -13,7 +13,7 @@ class Votes extends Component {
   render() {
     return (
       <div className='votes'>
-        <h1>Votes</h1>
+        <h1 className='votes__label'>Votes</h1>
         <VotesList candidates={this.state.candidates} />
       </div>
     );

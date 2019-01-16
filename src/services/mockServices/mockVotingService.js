@@ -1,42 +1,42 @@
 const candidates = [
   {
     name: 'Kanye West',
-    imageUrl: 'kanye.jpg',
+    imageUrl: 'kanye.png',
     offset: '1 month ago',
     industry: 'Entertainment',
     information:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    thumsUp: 0,
+    thumbsUp: 0,
     thumbsDown: 5
   },
   {
     name: 'Mark Zuckerberg',
-    imageUrl: 'mark.jpg',
+    imageUrl: 'mark.png',
     offset: '1 month ago',
     industry: 'Business',
     information:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    thumsUp: 5,
-    thumbsDown: 1
+    thumbsUp: 5,
+    thumbsDown: 2
   },
   {
     name: 'Kristina Fernándes de Kirchner',
-    imageUrl: 'kristina.jpg',
+    imageUrl: 'kristina.png',
     offset: '1 month ago',
     industry: 'Politics',
     information:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    thumsUp: 2,
+    thumbsUp: 2,
     thumbsDown: 3
   },
   {
     name: 'Malala Yousafzai',
-    imageUrl: 'malala.jpg',
+    imageUrl: 'malala.png',
     offset: '1 month ago',
     industry: 'Entertainment',
     information:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    thumsUp: 6,
+    thumbsUp: 6,
     thumbsDown: 2
   }
 ];
