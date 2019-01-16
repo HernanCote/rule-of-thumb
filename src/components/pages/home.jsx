@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import HeadOpionionBox from '../headOpinionBox';
 import InformationBox from '../common/informationBox';
-import Votes from '../common/voting/votes';
+import HeadOpionionBox from '../voting/headOpinionBox';
+import Votes from '../voting/votes';
 
 class Home extends Component {
   state = {};

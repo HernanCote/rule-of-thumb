@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from './components/common/navigation/navBar';
-import SideDrawer from './components/common/navigation/sideDrawer';
+import NavBar from './components/navigation/navBar';
+import SideDrawer from './components/navigation/sideDrawer';
 import Backdrop from './components/common/backdrop';
 import Home from './components/pages/home';
 
@@ -27,12 +27,12 @@ class App extends Component {
     }
 
     return (
-      <div style={{ height: '100%' }}>
+      <React.Fragment>
         <NavBar onDrawerToggleClick={this.drawerToggleHandle} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <Home />
-      </div>
+      </React.Fragment>
     );
   }
 }

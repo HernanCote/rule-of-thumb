@@ -9,6 +9,8 @@ $primary-color: rgb(0, 193, 183);
 $secondary-color: rgb(232, 157, 0);
 $white: #fff;
 $black: #333;
+
+$extra-wide-left-right-margin: 20rem;
 $wide-left-right-padding: 10rem;
 $small-left-right-padding: 1rem;
 
@@ -55,7 +57,7 @@ $small-left-right-padding: 1rem;
 }
 
 @mixin mediaXL {
-  @media screen and (min-width: 1171px) {
+  @media screen and (min-width: 1400px) {
     @content;
   }
 }

@@ -1,4 +1,4 @@
-@import 'config';
+@import 'configuration/config';
 
 * {
   box-sizing: border-box;
@@ -22,20 +22,21 @@ body {
 }
 
 //Pages
-@import 'home';
+@import 'pages/home';
 
 // Navigation
-@import 'navbar';
-@import 'drawerToggleButton';
-@import 'sideDrawer';
-@import 'backdrop';
+@import 'navigation/navbar';
+@import 'navigation/drawerToggleButton';
+@import 'navigation/sideDrawer';
 
 //Components
-@import 'components/headOpinionBox';
-@import 'components/informationBox';
-@import 'components/candidateBox';
-@import 'components/votesList';
-@import 'components/votes';
+@import 'components/common/informationBox';
+@import 'components/common/backdrop';
+
+@import 'components/voting/headOpinionBox';
+@import 'components/voting/votingCard';
+@import 'components/voting/votesList';
+@import 'components/voting/votes';
 
 //Responsive
-@import 'mobile';
+@import 'responsive/mobile';

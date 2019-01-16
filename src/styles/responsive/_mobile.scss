@@ -1,5 +1,14 @@
 //Widescreens
 @include mediaXL {
+  .container {
+    margin: 0 $extra-wide-left-right-margin;
+  }
+
+  .head {
+    height: 900px;
+    margin-bottom: 2rem;
+  }
+
   .navbar {
     &__toggle-button {
       display: none;
@@ -78,9 +87,11 @@
 
   .head {
     background: $pope-sm;
-    background: cover no-repeat center;
-    height: 80vh;
+    background-size: contain;
+    height: 540px;
+    width: 100%;
     max-width: 100%;
+    margin-bottom: 2rem;
 
     &__box {
       top: 5rem;

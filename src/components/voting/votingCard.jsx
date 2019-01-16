@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class CandidateBox extends Component {
+class VotingCard extends Component {
   state = { positive: 0, negative: 0 };
 
   componentDidMount = () => {
@@ -27,7 +27,7 @@ class CandidateBox extends Component {
         <div
           className='candidate-box__container'
           style={{
-            backgroundImage: `url(${require('../../../assets/' +
+            backgroundImage: `url(${require('../../assets/' +
               candidate.imageUrl)})`
           }}
         >
@@ -64,8 +64,8 @@ class CandidateBox extends Component {
   }
 }
 
-CandidateBox.propTypes = {
+VotingCard.propTypes = {
   candidate: PropTypes.object.isRequired
 };
 
-export default CandidateBox;
+export default VotingCard;
