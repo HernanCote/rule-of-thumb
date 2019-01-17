@@ -1,15 +1,23 @@
 /* eslint no-undef: 0 */
+/* eslint no-console: 0 */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VoteButton from './voteButton';
+import * as votingService from '../../services/mockServices/mockVotingService';
 
 class VotingCard extends Component {
-  state = { positive: 0, negative: 0, result: 'down' };
+  state = {
+    positive: 0,
+    negative: 0,
+    result: '',
+    vote: '',
+    thumbsUpSelected: false,
+    thumbsDownSelected: false
+  };
 
   componentDidMount = () => {
-    this.calculateWidths();
-    this.calculateResult();
+    this.calculateComponentData();
   };
 
   calculateWidths = () => {
@@ -31,9 +39,53 @@ class VotingCard extends Component {
     }
   };
 
+  handleVoteSelection = vote => {
+    this.resetVoteSelection();
+    this.setState({ vote });
+    if (vote === 'up') {
+      this.setState({ thumbsUpSelected: true });
+    } else {
+      this.setState({ thumbsDownSelected: true });
+    }
+  };
+
+  handleVote = candidate => {
+    if (!this.state.vote) {
+      return;
+    }
+
+    this.state.vote === 'up'
+      ? votingService.thumbsUpVote(candidate)
+      : votingService.thumbsDownVote(candidate);
+
+    this.props.refresh();
+    this.calculateComponentData();
+    this.resetVoteSelection();
+  };
+
+  resetVoteSelection = () => {
+    this.setState({
+      vote: '',
+      thumbsUpSelected: false,
+      thumbsDownSelected: false
+    });
+  };
+
+  calculateComponentData = () => {
+    this.calculateWidths();
+    this.calculateResult();
+  };
+
   render() {
     const { candidate } = this.props;
-    const { positive, negative, result } = this.state;
+    const {
+      positive,
+      negative,
+      result,
+      thumbsUpSelected,
+      thumbsDownSelected
+    } = this.state;
+
     return (
       <div className='candidate-box'>
         <div
@@ -55,13 +107,28 @@ class VotingCard extends Component {
               </div>
             </div>
             <div className='interaction'>
-              <div className='interaction__up-button mr'>
+              <div
+                className={`interaction__up-button mr ${
+                  thumbsUpSelected ? 'selected' : ''
+                }`}
+                onClick={() => this.handleVoteSelection('up')}
+              >
                 <VoteButton direction='up' />
               </div>
-              <div className='interaction__down-button mr'>
+              <div
+                className={`interaction__down-button mr ${
+                  thumbsDownSelected ? 'selected' : ''
+                }`}
+                onClick={() => this.handleVoteSelection('down')}
+              >
                 <VoteButton direction='down' />
               </div>
-              <button className='interaction__vote-button'>Vote now</button>
+              <button
+                className='interaction__vote-button'
+                onClick={() => this.handleVote(candidate)}
+              >
+                Vote now
+              </button>
             </div>
             <div className='results'>
               <div className='approve' style={{ width: `${positive}%` }}>
@@ -81,7 +148,8 @@ class VotingCard extends Component {
 }
 
 VotingCard.propTypes = {
-  candidate: PropTypes.object.isRequired
+  candidate: PropTypes.object.isRequired,
+  refresh: PropTypes.func.isRequired
 };
 
 export default VotingCard;

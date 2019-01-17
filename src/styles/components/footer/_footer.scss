@@ -1,6 +1,6 @@
 .footer {
   border-top: 1px dotted $black;
-  padding: 2rem 0;
+  padding: 1.2rem 0;
   display: flex;
   align-items: center;
 
@@ -11,6 +11,7 @@
 
   div {
     font-size: 0.8rem;
+    font-weight: 300;
     &:nth-child(3) {
       margin-right: auto;
     }
