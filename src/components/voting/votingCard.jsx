@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+
 import VoteButton from './voteButton';
 import * as votingService from '../../services/mockServices/mockVotingService';
 
@@ -51,7 +53,7 @@ class VotingCard extends Component {
 
   handleVote = candidate => {
     if (!this.state.vote) {
-      //return since the user have not selected any thumbs up or thumbs down vote
+      toast.error('Select a vote first!');
       return;
     }
 

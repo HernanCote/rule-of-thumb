@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Modal from './components/common/modal';
 import NavBar from './components/navigation/navBar';
@@ -14,6 +15,8 @@ import Home from './components/pages/home';
 import PastTrials from './components/pages/pastTrials';
 import HowItWorks from './components/pages/howItWorks';
 import NotFound from './components/pages/notFound';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   state = {
@@ -63,6 +66,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
+        <ToastContainer />
         <NavBar
           onDrawerToggleClick={this.drawerToggleHandle}
           openModal={this.handleModalOpen}
