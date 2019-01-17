@@ -43,7 +43,10 @@ class NavBar extends Component {
                 <NavLink to='/how'>How It Works</NavLink>
               </li>
               <li>
-                <a onClick={this.props.openModal}>Login / Sign Up</a>
+                <a onClick={() => this.props.openModal('login')}>Login /</a>
+              </li>
+              <li>
+                <a onClick={() => this.props.openModal('signup')}>Sign Up</a>
               </li>
               <li>
                 <a>

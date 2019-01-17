@@ -5,6 +5,7 @@ import Modal from './components/common/modal';
 import NavBar from './components/navigation/navBar';
 import SideDrawer from './components/navigation/sideDrawer';
 import LoginForm from './components/auth/loginForm';
+import SignupForm from './components/auth/singupForm';
 
 import Backdrop from './components/common/backdrop';
 import Footer from './components/footer/footer';
@@ -17,15 +18,20 @@ import NotFound from './components/pages/notFound';
 class App extends Component {
   state = {
     sideDrawerOpen: false,
-    showModal: true
+    showModal: false,
+    currentModal: ''
   };
 
-  handleModalOpen = () => {
-    this.setState({ showModal: true });
+  handleModalOpen = modalToShow => {
+    this.setState({
+      showModal: true,
+      sideDrawerOpen: false,
+      currentModal: modalToShow
+    });
   };
 
   handleModalClose = () => {
-    this.setState({ showModal: false });
+    this.setState({ showModal: false, currentModal: '' });
   };
 
   drawerToggleHandle = () => {
@@ -35,7 +41,17 @@ class App extends Component {
   };
 
   backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false, showModal: false });
+    this.setState({
+      sideDrawerOpen: false,
+      showModal: false,
+      currentModal: ''
+    });
+  };
+
+  renderModal = currentModal => {
+    if (currentModal === 'login') return <LoginForm />;
+    else if (currentModal === 'signup') return <SignupForm />;
+    else return <span />;
   };
 
   render() {
@@ -51,9 +67,12 @@ class App extends Component {
           onDrawerToggleClick={this.drawerToggleHandle}
           openModal={this.handleModalOpen}
         />
-        <SideDrawer show={this.state.sideDrawerOpen} />
+        <SideDrawer
+          show={this.state.sideDrawerOpen}
+          openModal={this.handleModalOpen}
+        />
         <Modal show={this.state.showModal} handleClose={this.handleModalClose}>
-          <LoginForm />
+          {this.renderModal(this.state.currentModal)}
         </Modal>
         {backdrop}
         <Switch>

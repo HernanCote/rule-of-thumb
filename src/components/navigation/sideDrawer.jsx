@@ -1,20 +1,24 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-const SideDrawer = ({ show }) => {
+const SideDrawer = ({ show, openModal }) => {
   let openClass = show === true ? 'open' : '';
 
   return (
     <nav className={`side-drawer ${openClass}`}>
       <ul>
         <li>
-          <a href=''>Past Trials</a>
+          <NavLink to='/home'>Home</NavLink>
         </li>
         <li>
-          <a href=''>How It Works</a>
+          <NavLink to='/past'>Past Trials</NavLink>
         </li>
         <li>
-          <a href=''>Login / Sign Up</a>
+          <NavLink to='/how'>How It Works</NavLink>
+        </li>
+        <li>
+          <a onClick={openModal}>Login / Sign Up</a>
         </li>
       </ul>
     </nav>
@@ -22,7 +26,8 @@ const SideDrawer = ({ show }) => {
 };
 
 SideDrawer.propTypes = {
-  show: PropTypes.bool.isRequired
+  show: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired
 };
 
 export default SideDrawer;

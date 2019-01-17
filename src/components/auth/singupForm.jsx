@@ -5,7 +5,7 @@ import React from 'react';
 import Joi from 'joi-browser';
 import Form from '../common/form';
 
-class LoginForm extends Form {
+class SignupForm extends Form {
   state = {
     data: {
       email: '',
@@ -26,21 +26,21 @@ class LoginForm extends Form {
 
   doSubmit = () => {
     //TODO implement authentication
-    console.log('You logged in!');
+    console.log('You sign up successfully!');
   };
 
   render() {
     return (
       <div className='login-form'>
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput('email', 'Email', 'text', true)}
           {this.renderInput('password', 'Password', 'password')}
-          {this.renderButton('Login', 'login-button')}
+          {this.renderButton('Sign Up', 'login-button')}
         </form>
       </div>
     );
   }
 }
 
-export default LoginForm;
+export default SignupForm;
