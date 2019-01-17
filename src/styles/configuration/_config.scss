@@ -11,7 +11,7 @@ $secondary-color: rgb(232, 157, 0);
 $white: #fff;
 $black: #333;
 
-$extra-wide-left-right-margin: 20rem;
+$extra-wide-left-right-margin: 15rem;
 $wide-left-right-padding: 10rem;
 $small-left-right-padding: 1rem;
 
@@ -70,13 +70,13 @@ $small-left-right-padding: 1rem;
 }
 
 @mixin mediaLg {
-  @media screen and (min-width: 769px) and (max-width: 1400px) {
+  @media screen and (min-width: 769px) and (max-width: 1480px) {
     @content;
   }
 }
 
 @mixin mediaXL {
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1481px) {
     @content;
   }
 }

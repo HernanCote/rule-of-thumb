@@ -127,4 +127,13 @@
     grid-template-columns: 1fr;
     grid-gap: 0;
   }
+
+  .footer {
+    flex-wrap: wrap;
+    div {
+      &:nth-child(3) {
+        margin-right: 6rem;
+      }
+    }
+  }
 }

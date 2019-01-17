@@ -20,11 +20,6 @@ body {
 //Pages
 @import 'pages/home';
 
-// Navigation
-@import 'navigation/navbar';
-@import 'navigation/drawerToggleButton';
-@import 'navigation/sideDrawer';
-
 //Components
 @import 'components/common/informationBox';
 @import 'components/common/backdrop';
@@ -35,6 +30,12 @@ body {
 @import 'components/voting/votesList';
 @import 'components/voting/votes';
 @import 'components/voting/voteButton';
+
+@import 'components/navigation/navbar';
+@import 'components/navigation/drawerToggleButton';
+@import 'components/navigation/sideDrawer';
+
+@import 'components/footer/footer.scss';
 
 //Responsive
 @import 'responsive/mobile';
