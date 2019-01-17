@@ -63,6 +63,18 @@ $small-left-right-padding: 1rem;
   transition: all 0.3s ease-out;
 }
 
+@mixin pageHeader {
+  padding-top: 10rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+@mixin pageDescription {
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
 //Media query mixins
 
 @mixin mediaSm {

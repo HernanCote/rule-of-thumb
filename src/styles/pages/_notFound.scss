@@ -1,9 +1,10 @@
-.past-trials {
+.not-found {
   h1 {
     @include pageHeader;
   }
 
   p {
     @include pageDescription;
+    font-size: 2rem;
   }
 }

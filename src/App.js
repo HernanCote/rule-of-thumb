@@ -7,6 +7,8 @@ import Footer from './components/footer/footer';
 
 import Home from './components/pages/home';
 import PastTrials from './components/pages/pastTrials';
+import HowItWorks from './components/pages/howItWorks';
+import NotFound from './components/pages/notFound';
 
 class App extends Component {
   state = {
@@ -38,7 +40,10 @@ class App extends Component {
         <Switch>
           <Route path='/home' component={Home} />
           <Route path='/past' component={PastTrials} />
-          <Redirect from='/' to='/home' />
+          <Route path='/how' component={HowItWorks} />
+          <Route path='/not-found' component={NotFound} />
+          <Redirect from='/' exact to='/home' />
+          <Redirect to='/not-found' />
         </Switch>
         <Footer />
       </React.Fragment>

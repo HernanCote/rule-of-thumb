@@ -19,7 +19,9 @@ body {
 
 //Pages
 @import 'pages/home';
-@import 'pages/pastTrials.scss';
+@import 'pages/pastTrials';
+@import 'pages/howItWorks';
+@import 'pages/notFound';
 
 //Components
 @import 'components/common/informationBox';
@@ -36,7 +38,7 @@ body {
 @import 'components/navigation/drawerToggleButton';
 @import 'components/navigation/sideDrawer';
 
-@import 'components/footer/footer.scss';
+@import 'components/footer/footer';
 
 //Responsive
 @import 'responsive/mobile';
