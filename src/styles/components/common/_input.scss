@@ -1,0 +1,41 @@
+$width: 400px;
+
+.input {
+  margin: 1rem 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  label {
+    color: $black;
+    padding-left: 0.5rem;
+  }
+
+  &__field {
+    color: $black;
+    background: #cacaca;
+    display: block;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    height: 2rem;
+    width: 20rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    @include easeOut;
+
+    &:focus {
+      outline-width: 0;
+      background: rgba($primary-color, 0.15);
+    }
+  }
+
+  &__error {
+    font-size: 0.7rem;
+    color: #d11919;
+    padding-left: 0.5rem;
+  }
+}

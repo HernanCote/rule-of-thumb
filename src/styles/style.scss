@@ -27,12 +27,16 @@ body {
 @import 'components/common/informationBox';
 @import 'components/common/backdrop';
 @import 'components/common/sugestionsBox';
+@import 'components/common/modal';
+@import 'components/common/input';
 
 @import 'components/voting/headOpinionBox';
 @import 'components/voting/votingCard';
 @import 'components/voting/votesList';
 @import 'components/voting/votes';
 @import 'components/voting/voteButton';
+
+@import 'components/auth/loginForm';
 
 @import 'components/navigation/navbar';
 @import 'components/navigation/drawerToggleButton';

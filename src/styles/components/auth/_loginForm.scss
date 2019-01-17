@@ -1,0 +1,16 @@
+.login-form {
+  margin: 2rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  .login-button {
+    color: $black;
+    font-size: 0.8rem;
+    padding: 0.5rem 2rem;
+    background: transparent;
+    border: 2px solid $black;
+  }
+}

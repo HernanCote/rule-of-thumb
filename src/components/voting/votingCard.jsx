@@ -1,5 +1,4 @@
 /* eslint no-undef: 0 */
-/* eslint no-console: 0 */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -13,7 +12,8 @@ class VotingCard extends Component {
     result: '',
     vote: '',
     thumbsUpSelected: false,
-    thumbsDownSelected: false
+    thumbsDownSelected: false,
+    voted: false
   };
 
   componentDidMount = () => {
@@ -51,6 +51,7 @@ class VotingCard extends Component {
 
   handleVote = candidate => {
     if (!this.state.vote) {
+      //return since the user have not selected any thumbs up or thumbs down vote
       return;
     }
 
@@ -58,9 +59,14 @@ class VotingCard extends Component {
       ? votingService.thumbsUpVote(candidate)
       : votingService.thumbsDownVote(candidate);
 
+    this.setState({ voted: true });
     this.props.refresh();
     this.calculateComponentData();
     this.resetVoteSelection();
+  };
+
+  handleVoteAgain = () => {
+    this.setState({ voted: false });
   };
 
   resetVoteSelection = () => {
@@ -76,15 +82,52 @@ class VotingCard extends Component {
     this.calculateResult();
   };
 
+  renderInteraction = candidate => {
+    const { thumbsUpSelected, thumbsDownSelected, voted } = this.state;
+    if (!voted) {
+      return (
+        <div className='interaction'>
+          <div
+            className={`interaction__up-button mr ${
+              thumbsUpSelected ? 'selected' : ''
+            }`}
+            onClick={() => this.handleVoteSelection('up')}
+          >
+            <VoteButton direction='up' />
+          </div>
+          <div
+            className={`interaction__down-button mr ${
+              thumbsDownSelected ? 'selected' : ''
+            }`}
+            onClick={() => this.handleVoteSelection('down')}
+          >
+            <VoteButton direction='down' />
+          </div>
+          <button
+            className='interaction__vote-button'
+            onClick={() => this.handleVote(candidate)}
+          >
+            Vote now
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className='interaction'>
+          <button
+            className='interaction__vote-button'
+            onClick={this.handleVoteAgain}
+          >
+            Vote Again
+          </button>
+        </div>
+      );
+    }
+  };
+
   render() {
     const { candidate } = this.props;
-    const {
-      positive,
-      negative,
-      result,
-      thumbsUpSelected,
-      thumbsDownSelected
-    } = this.state;
+    const { positive, negative, result, voted } = this.state;
 
     return (
       <div className='candidate-box'>
@@ -103,33 +146,13 @@ class VotingCard extends Component {
               <div className='content-info__candidate-info'>
                 <div>{candidate.name}</div>
                 <div>{`${candidate.offset} in ${candidate.industry}`}</div>
-                <div>{candidate.information}</div>
+                {!voted && <div>{candidate.information}</div>}
+                {voted && (
+                  <div style={{ fontSize: '1.95rem' }}>Thanks for voting!</div>
+                )}
               </div>
             </div>
-            <div className='interaction'>
-              <div
-                className={`interaction__up-button mr ${
-                  thumbsUpSelected ? 'selected' : ''
-                }`}
-                onClick={() => this.handleVoteSelection('up')}
-              >
-                <VoteButton direction='up' />
-              </div>
-              <div
-                className={`interaction__down-button mr ${
-                  thumbsDownSelected ? 'selected' : ''
-                }`}
-                onClick={() => this.handleVoteSelection('down')}
-              >
-                <VoteButton direction='down' />
-              </div>
-              <button
-                className='interaction__vote-button'
-                onClick={() => this.handleVote(candidate)}
-              >
-                Vote now
-              </button>
-            </div>
+            {this.renderInteraction(candidate)}
             <div className='results'>
               <div className='approve' style={{ width: `${positive}%` }}>
                 <i className='fas fa-thumbs-up' />

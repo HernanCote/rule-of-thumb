@@ -43,10 +43,10 @@ class NavBar extends Component {
                 <NavLink to='/how'>How It Works</NavLink>
               </li>
               <li>
-                <NavLink to='/login'>Login / Sign Up</NavLink>
+                <a onClick={this.props.openModal}>Login / Sign Up</a>
               </li>
               <li>
-                <a href=''>
+                <a>
                   <i className='fas fa-search' />
                 </a>
               </li>
@@ -59,7 +59,8 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-  onDrawerToggleClick: PropTypes.func.isRequired
+  onDrawerToggleClick: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired
 };
 
 export default NavBar;
