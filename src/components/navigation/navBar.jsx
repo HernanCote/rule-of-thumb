@@ -1,8 +1,10 @@
 /* eslint no-undef: 0 */
 
 import React, { Component } from 'react';
-import DrawerToggleButton from './drawerToggleButton';
 import { PropTypes } from 'prop-types';
+import { NavLink } from 'react-router-dom';
+
+import DrawerToggleButton from './drawerToggleButton';
 
 class NavBar extends Component {
   state = {
@@ -29,19 +31,19 @@ class NavBar extends Component {
             <DrawerToggleButton click={onDrawerToggleClick} />
           </div>
           <div className='navbar__branding'>
-            <a href=''>Rule of Thumb.</a>
+            <NavLink to='/'>Rule of Thumb.</NavLink>
           </div>
           <div className='space' />
           <div className='navbar_navigation-items'>
             <ul>
               <li>
-                <a href=''>Past Trials</a>
+                <NavLink to='/past'>Past Trials</NavLink>
               </li>
               <li>
-                <a href=''>How It Works</a>
+                <NavLink to='/how'>How It Works</NavLink>
               </li>
               <li>
-                <a href=''>Login / Sign Up</a>
+                <NavLink to='/login'>Login / Sign Up</NavLink>
               </li>
               <li>
                 <a href=''>

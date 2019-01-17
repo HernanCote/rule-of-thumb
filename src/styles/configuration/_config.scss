@@ -19,6 +19,14 @@ $small-left-right-padding: 1rem;
   margin: 0 $wide-left-right-padding;
 }
 
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.pt-10 {
+  padding-top: 10rem;
+}
+
 @mixin styledButtonWhite {
   cursor: pointer;
   color: $white;
