@@ -1,3 +1,4 @@
 {
+  "jwtPrivateKey": "ruleOfThumb_jwtPrivateKey",
   "db": "ruleOfThumb_db"
 }

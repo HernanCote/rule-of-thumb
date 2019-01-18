@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
+const auth = require('../middleware/auth');
 
 const { Candidate, validate } = require('../models/candidate');
 
@@ -21,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', auth, async (req, res, next) => {
   const { error } = validate(req.body);
 
   if (error) {

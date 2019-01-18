@@ -5,11 +5,18 @@ const mongoose = require('mongoose');
 
 const users = require('./routes/users');
 const candidates = require('./routes/candidates');
+const auth = require('./routes/auth');
 
 const app = express();
 
+if (!config.get('jwtPrivateKey')) {
+  console.log('FATAL ERROR: Jwt Private Key is not set');
+  process.exit(1);
+}
+
 if (!config.get('db')) {
   console.log('FATAL ERROR: db connection string is not defined');
+  process.exit(1);
 }
 
 mongoose
@@ -23,6 +30,7 @@ mongoose
 app.use(express.json());
 app.use(cors());
 
+app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/candidates', candidates);
 
