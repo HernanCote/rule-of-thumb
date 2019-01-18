@@ -9,7 +9,9 @@ class SignupForm extends Form {
   state = {
     data: {
       email: '',
-      password: ''
+      password: '',
+      age: '',
+      marriageStatus: ''
     },
     errors: {}
   };
@@ -21,7 +23,13 @@ class SignupForm extends Form {
       .label('Email'),
     password: Joi.string()
       .required()
-      .label('Password')
+      .label('Password'),
+    age: Joi.number()
+      .required()
+      .label('Age'),
+    marriageStatus: Joi.string()
+      .required()
+      .label('Marriage Status')
   };
 
   doSubmit = () => {
@@ -34,8 +42,10 @@ class SignupForm extends Form {
       <div className='login-form'>
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput('email', 'Email', 'text', true)}
+          {this.renderInput('email', 'Email', 'text')}
           {this.renderInput('password', 'Password', 'password')}
+          {this.renderInput('age', 'Age', 'text')}
+          {this.renderInput('marriageStatus', 'Marriage Status', 'text')}
           {this.renderButton('Sign Up', 'login-button')}
         </form>
       </div>
