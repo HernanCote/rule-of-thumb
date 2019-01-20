@@ -2,37 +2,16 @@ const config = require('config');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
-const users = require('./routes/users');
-const candidates = require('./routes/candidates');
-const auth = require('./routes/auth');
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 const app = express();
 
-if (!config.get('jwtPrivateKey')) {
-  console.log('FATAL ERROR: Jwt Private Key is not set');
-  process.exit(1);
-}
-
-if (!config.get('db')) {
-  console.log('FATAL ERROR: db connection string is not defined');
-  process.exit(1);
-}
-
-mongoose
-  .connect(
-    config.get('db'),
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('Connected to MongoDb'))
-  .catch(err => console.error('Could not connect to MongoDb', err.message));
-
-app.use(express.json());
-app.use(cors());
-
-app.use('/api/auth', auth);
-app.use('/api/users', users);
-app.use('/api/candidates', candidates);
+require('./startup/config')();
+require('./startup/logging')();
+require('./startup/cors')(app);
+require('./startup/routes')(app);
+require('./startup/db')();
 
 app.use((req, res, next) => {
   const error = new Error('Resource Not Found');
