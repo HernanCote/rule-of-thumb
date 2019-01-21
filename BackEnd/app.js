@@ -1,17 +1,14 @@
 const config = require('config');
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi);
 
 const app = express();
 
 require('./startup/config')();
+require('./startup/db')();
 require('./startup/logging')();
 require('./startup/cors')(app);
 require('./startup/routes')(app);
-require('./startup/db')();
+require('./startup/validation')();
 
 app.use((req, res, next) => {
   const error = new Error('Resource Not Found');

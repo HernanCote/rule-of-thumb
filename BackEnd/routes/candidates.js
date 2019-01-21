@@ -4,6 +4,7 @@ const _ = require('lodash');
 const auth = require('../middleware/auth');
 
 const { Candidate, validate } = require('../models/candidate');
+const { User } = require('../models/user');
 
 router.get('/', async (req, res, next) => {
   const candidates = await Candidate.find().sort('name');
@@ -49,6 +50,56 @@ router.post('/', auth, async (req, res, next) => {
       console.log(ex.errors[field].message);
     }
     res.status(500).send('Ops! Something failed on our side');
+  }
+});
+
+router.post('/:id/thumbs-up', async (req, res, next) => {
+  const model = { candidateId: req.params.id, ...req.body };
+
+  const user = await User.findById(model.userId).select({ _id: 1, email: 1 });
+  if (!user) {
+    return res.status(400).send('Invalid user');
+  }
+  const candidate = await Candidate.findById(model.candidateId);
+
+  if (!candidate) {
+    return res.status(400).send('Invalid candidate');
+  }
+
+  try {
+    await Candidate.findOneAndUpdate(
+      { _id: candidate._id },
+      { $inc: { thumbsUp: 1 } }
+    );
+    res.status(200).send();
+  } catch (ex) {
+    console.log(ex.message);
+    res.status(400).send(ex.message);
+  }
+});
+
+router.post('/:id/thumbs-down', async (req, res, next) => {
+  const model = { candidateId: req.params.id, ...req.body };
+
+  const user = await User.findById(model.userId).select({ _id: 1, email: 1 });
+  if (!user) {
+    return res.status(400).send('Invalid user');
+  }
+  const candidate = await Candidate.findById(model.candidateId);
+
+  if (!candidate) {
+    return res.status(400).send('Invalid candidate');
+  }
+
+  try {
+    await Candidate.findOneAndUpdate(
+      { _id: candidate._id },
+      { $inc: { thumbsDown: 1 } }
+    );
+    res.status(200).send();
+  } catch (ex) {
+    console.log(ex.message);
+    res.status(400).send(ex.message);
   }
 });
 
