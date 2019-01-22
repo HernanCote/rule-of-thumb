@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import DrawerToggleButton from './drawerToggleButton';
+import auth from '../../services/authservices';
 
 class NavBar extends Component {
   state = {
@@ -22,8 +23,13 @@ class NavBar extends Component {
       this.setState({ isMinified: true });
     }
   };
+
+  handleLogout = () => {
+    auth.logout();
+    window.location = '/';
+  };
   render() {
-    const { onDrawerToggleClick } = this.props;
+    const { onDrawerToggleClick, user } = this.props;
     return (
       <header className={`navbar ${this.state.isMinified ? 'minified' : ''}`}>
         <nav className='navbar__navigation'>
@@ -42,12 +48,28 @@ class NavBar extends Component {
               <li>
                 <NavLink to='/how'>How It Works</NavLink>
               </li>
-              <li>
-                <a onClick={() => this.props.openModal('login')}>Login /</a>
-              </li>
-              <li>
-                <a onClick={() => this.props.openModal('signup')}>Sign Up</a>
-              </li>
+              {!user && (
+                <React.Fragment>
+                  <li>
+                    <a onClick={() => this.props.openModal('login')}>Login /</a>
+                  </li>
+                  <li>
+                    <a onClick={() => this.props.openModal('signup')}>
+                      Sign Up
+                    </a>
+                  </li>
+                </React.Fragment>
+              )}
+              {user && (
+                <React.Fragment>
+                  <li>
+                    <a />
+                  </li>
+                  <li>
+                    <a onClick={this.handleLogout}>Logout</a>
+                  </li>
+                </React.Fragment>
+              )}
               <li>
                 <a>
                   <i className='fas fa-search' />
@@ -63,7 +85,8 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
   onDrawerToggleClick: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
+  user: PropTypes.object
 };
 
 export default NavBar;

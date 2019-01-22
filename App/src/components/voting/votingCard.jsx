@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
 import VoteButton from './voteButton';
-import * as votingService from '../../services/mockServices/mockVotingService';
+import * as candidateService from '../../services/candidateServices';
+
+import auth from '../../services/authservices';
 
 class VotingCard extends Component {
   state = {
     positive: 0,
     negative: 0,
+    thumbsUp: this.props.candidate.thumbsUp,
+    thumbsDown: this.props.candidate.thumbsDown,
     result: '',
     vote: '',
     thumbsUpSelected: false,
@@ -23,7 +27,11 @@ class VotingCard extends Component {
   };
 
   calculateWidths = () => {
-    const { thumbsUp, thumbsDown } = this.props.candidate;
+    const { thumbsUp, thumbsDown } = this.state;
+    if (thumbsUp === 0 && thumbsDown === 0) {
+      this.setState({ positive: 50, negative: 50 });
+      return;
+    }
     const totalVotes = thumbsUp + thumbsDown;
     const positive = Math.ceil((thumbsUp / totalVotes) * 100);
     const negative = Math.floor((thumbsDown / totalVotes) * 100);
@@ -32,7 +40,7 @@ class VotingCard extends Component {
   };
 
   calculateResult = () => {
-    const { thumbsUp, thumbsDown } = this.props.candidate;
+    const { thumbsUp, thumbsDown } = this.state;
 
     if (thumbsUp >= thumbsDown) {
       this.setState({ result: 'up' });
@@ -51,20 +59,48 @@ class VotingCard extends Component {
     }
   };
 
-  handleVote = candidate => {
+  handleVote = async candidate => {
+    const user = auth.getCurrentUser();
+    if (!user) {
+      toast.error('You must be logged in first in order to vote');
+      return;
+    }
+
+    const {
+      thumbsUp: originalThumbsUp,
+      thumbsDown: originalThumbsDown
+    } = this.state;
+
     if (!this.state.vote) {
       toast.error('Select a vote first!');
       return;
     }
 
     this.state.vote === 'up'
-      ? votingService.thumbsUpVote(candidate)
-      : votingService.thumbsDownVote(candidate);
+      ? this.setState({ thumbsUp: this.state.thumbsUp + 1 })
+      : this.setState({ thumbsDown: this.state.thumbsDown + 1 });
 
-    this.setState({ voted: true });
-    this.props.refresh();
-    this.calculateComponentData();
-    this.resetVoteSelection();
+    try {
+      this.state.vote === 'up'
+        ? await candidateService.thumbsUpVote(
+            candidate._id,
+            '5c4615075a600d1905c7f9d0'
+          )
+        : await candidateService.thumbsDownVote(
+            candidate._id,
+            '5c4615075a600d1905c7f9d0'
+          );
+
+      this.setState({ voted: true });
+      this.calculateComponentData();
+      this.resetVoteSelection();
+    } catch (ex) {
+      toast.error('Error updating vote');
+      this.setState({
+        thumbsUp: originalThumbsUp,
+        thumbsDown: originalThumbsDown
+      });
+    }
   };
 
   handleVoteAgain = () => {

@@ -1,9 +1,11 @@
-/* eslint no-console: 0 */
 /* eslint no-undef: 0 */
 import React from 'react';
 
 import Joi from 'joi-browser';
 import Form from '../common/form';
+
+import auth from '../../services/authservices';
+import userServices from '../../services/userServices';
 
 class SignupForm extends Form {
   state = {
@@ -32,9 +34,18 @@ class SignupForm extends Form {
       .label('Marriage Status')
   };
 
-  doSubmit = () => {
-    //TODO implement authentication
-    console.log('You sign up successfully!');
+  doSubmit = async () => {
+    try {
+      const response = await userServices.signup(this.state.data);
+      auth.loginWithJwt(response.headers['x-auth-token']);
+      window.location = '/';
+    } catch (ex) {
+      if (ex.response && ex.response.status === 409) {
+        const errors = { ...this.state.errors };
+        errors.email = ex.response.data;
+        this.setState({ errors });
+      }
+    }
   };
 
   render() {

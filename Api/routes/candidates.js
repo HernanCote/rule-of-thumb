@@ -7,7 +7,7 @@ const { Candidate, validate } = require('../models/candidate');
 const { User } = require('../models/user');
 
 router.get('/', async (req, res, next) => {
-  const candidates = await Candidate.find().sort('name');
+  const candidates = await Candidate.find().sort('_id');
   res.status(200).send(candidates);
 });
 

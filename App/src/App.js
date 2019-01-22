@@ -16,6 +16,8 @@ import PastTrials from './components/pages/pastTrials';
 import HowItWorks from './components/pages/howItWorks';
 import NotFound from './components/pages/notFound';
 
+import auth from './services/authservices';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
@@ -24,6 +26,11 @@ class App extends Component {
     showModal: false,
     currentModal: ''
   };
+
+  componentDidMount() {
+    const user = auth.getCurrentUser();
+    this.setState({ user });
+  }
 
   handleModalOpen = modalToShow => {
     this.setState({
@@ -68,6 +75,7 @@ class App extends Component {
       <React.Fragment>
         <ToastContainer />
         <NavBar
+          user={this.state.user}
           onDrawerToggleClick={this.drawerToggleHandle}
           openModal={this.handleModalOpen}
         />

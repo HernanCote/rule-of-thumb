@@ -1,9 +1,10 @@
 /* eslint no-console: 0 */
 /* eslint no-undef: 0 */
 import React from 'react';
-
 import Joi from 'joi-browser';
+
 import Form from '../common/form';
+import auth from '../../services/authservices';
 
 class LoginForm extends Form {
   state = {
@@ -24,9 +25,18 @@ class LoginForm extends Form {
       .label('Password')
   };
 
-  doSubmit = () => {
-    //TODO implement authentication
-    console.log('You logged in!');
+  doSubmit = async () => {
+    const { data } = this.state;
+    try {
+      await auth.login(data.email, data.password);
+      window.location = '/';
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.password = ex.response.data;
+        this.setState({ errors });
+      }
+    }
   };
 
   render() {

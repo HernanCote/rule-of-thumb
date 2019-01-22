@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as votingService from '../../services/mockServices/mockVotingService';
+import { getCandidates } from '../../services/candidateServices';
 import VotesList from './votesList';
 
 class Votes extends Component {
@@ -9,8 +9,8 @@ class Votes extends Component {
     this.refreshCandidatesData();
   }
 
-  refreshCandidatesData = () => {
-    const candidates = votingService.getCandidates();
+  refreshCandidatesData = async () => {
+    const { data: candidates } = await getCandidates();
     this.setState({ candidates });
   };
 
