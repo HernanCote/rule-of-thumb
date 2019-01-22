@@ -44,12 +44,12 @@ So first set:
 For mac:
 
     export ruleOfThumb_jwtPrivateKey=<AnyPrivateKeyHere>
-    export ruleOfTHumb_db=<AnyMongoDbConnectionString>
+    export ruleOfThumb_db=<AnyMongoDbConnectionString>
 
 For windows command line:
 
-    set ruleOfTHumb_jwtPrivateKey=<AnyPrivateKeyHere>
-    set ruleOfTHumb_db=<AnyMongoDbConnectionString>
+    set ruleOfThumb_jwtPrivateKey=<AnyPrivateKeyHere>
+    set ruleOfThumb_db=<AnyMongoDbConnectionString>
 
 For Windows Powershell
 
