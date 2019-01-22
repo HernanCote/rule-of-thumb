@@ -1,4 +1,5 @@
 /* eslint no-undef: 0 */
+/* eslint no-console: 0 */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -82,20 +83,15 @@ class VotingCard extends Component {
 
     try {
       this.state.vote === 'up'
-        ? await candidateService.thumbsUpVote(
-            candidate._id,
-            '5c4615075a600d1905c7f9d0'
-          )
-        : await candidateService.thumbsDownVote(
-            candidate._id,
-            '5c4615075a600d1905c7f9d0'
-          );
+        ? await candidateService.thumbsUpVote(candidate._id, user._id)
+        : await candidateService.thumbsDownVote(candidate._id, user._id);
 
       this.setState({ voted: true });
       this.calculateComponentData();
       this.resetVoteSelection();
+      this.props.refresh();
     } catch (ex) {
-      toast.error('Error updating vote');
+      toast.error('Cannot vote more than three times per candidate');
       this.setState({
         thumbsUp: originalThumbsUp,
         thumbsDown: originalThumbsDown
