@@ -36,9 +36,9 @@ npm run dev
 
 ```
 
-You may find that the project encounters an error before executing the solution pipeline given that there are some environment variables that you first need to set called.
+You may find that the project encounters an error before executing the solution pipeline given that there are some environment variables that you first need to set up.
 
-So first set:
+First set:
 
 ```
 For mac:
