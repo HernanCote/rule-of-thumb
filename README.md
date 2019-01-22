@@ -41,17 +41,17 @@ You may find that the project encounters an error before executing the solution 
 First set:
 
 ```
-For mac:
+If you are using mac:
 
     export ruleOfThumb_jwtPrivateKey=<AnyPrivateKeyHere>
     export ruleOfThumb_db=<AnyMongoDbConnectionString>
 
-For windows command line:
+If you are using windows command line:
 
     set ruleOfThumb_jwtPrivateKey=<AnyPrivateKeyHere>
     set ruleOfThumb_db=<AnyMongoDbConnectionString>
 
-For Windows Powershell
+If you are using Windows Powershell
 
     $env:ruleOfThumb_jwtPrivateKey="<AnyPrivateKeyHere>"
     $env:ruleOfThumb_db="<AnyMongoDbConnectionString>"
