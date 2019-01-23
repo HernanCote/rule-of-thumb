@@ -18,14 +18,9 @@ const SideDrawer = ({ show, openModal, user, logout }) => {
           <NavLink to='/how'>How It Works</NavLink>
         </li>
         {!user && (
-          <React.Fragment>
-            <li>
-              <a onClick={() => openModal('login')}>Login</a>
-            </li>
-            <li>
-              <a onClick={() => openModal('signup')}>Sign Up</a>
-            </li>
-          </React.Fragment>
+          <li>
+            <a onClick={() => openModal('login')}>Login / Sign Up</a>
+          </li>
         )}
         {user && (
           <li>

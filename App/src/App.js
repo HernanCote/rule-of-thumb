@@ -71,6 +71,19 @@ class App extends Component {
     window.location = '/';
   };
 
+  handleModalChange = () => {
+    const { currentModal } = this.state;
+    if (currentModal === 'login') this.setState({ currentModal: 'signup' });
+    else this.setState({ currentModal: 'login' });
+  };
+
+  renderAuthAction = () => {
+    const { currentModal } = this.state;
+    if (currentModal === 'login') return 'Sing Up';
+    else if (currentModal === 'signup') return 'Login';
+    else return <span />;
+  };
+
   render() {
     let backdrop;
 
@@ -94,7 +107,13 @@ class App extends Component {
           logout={this.handleLogout}
         />
         <Modal show={this.state.showModal} handleClose={this.handleModalClose}>
-          {this.renderModal(this.state.currentModal)}
+          <React.Fragment>
+            <div className='login-signup'>
+              Or{' '}
+              <a onClick={this.handleModalChange}>{this.renderAuthAction()}</a>
+            </div>
+            {this.renderModal(this.state.currentModal)}
+          </React.Fragment>
         </Modal>
         {backdrop}
         <Switch>
