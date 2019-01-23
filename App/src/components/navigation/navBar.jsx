@@ -5,7 +5,6 @@ import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import DrawerToggleButton from './drawerToggleButton';
-import auth from '../../services/authservices';
 
 class NavBar extends Component {
   state = {
@@ -24,10 +23,6 @@ class NavBar extends Component {
     }
   };
 
-  handleLogout = () => {
-    auth.logout();
-    window.location = '/';
-  };
   render() {
     const { onDrawerToggleClick, user } = this.props;
     return (
@@ -66,7 +61,7 @@ class NavBar extends Component {
                     <a />
                   </li>
                   <li>
-                    <a onClick={this.handleLogout}>Logout</a>
+                    <a onClick={this.props.logout}>Logout</a>
                   </li>
                 </React.Fragment>
               )}
@@ -86,7 +81,8 @@ class NavBar extends Component {
 NavBar.propTypes = {
   onDrawerToggleClick: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
-  user: PropTypes.object
+  user: PropTypes.object,
+  logout: PropTypes.func.isRequired
 };
 
 export default NavBar;

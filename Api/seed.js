@@ -20,7 +20,7 @@ const data = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
   },
   {
-    name: 'Kristina Fernándes de Kirchner',
+    name: 'Cristina Fernándes de Kirchner',
     imageUrl: 'kristina.png',
     offset: '1 month ago',
     industry: 'Politics',

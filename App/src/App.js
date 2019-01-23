@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -64,6 +66,11 @@ class App extends Component {
     else return <span />;
   };
 
+  handleLogout = () => {
+    auth.logout();
+    window.location = '/';
+  };
+
   render() {
     let backdrop;
 
@@ -78,10 +85,13 @@ class App extends Component {
           user={this.state.user}
           onDrawerToggleClick={this.drawerToggleHandle}
           openModal={this.handleModalOpen}
+          logout={this.handleLogout}
         />
         <SideDrawer
+          user={this.state.user}
           show={this.state.sideDrawerOpen}
           openModal={this.handleModalOpen}
+          logout={this.handleLogout}
         />
         <Modal show={this.state.showModal} handleClose={this.handleModalClose}>
           {this.renderModal(this.state.currentModal)}

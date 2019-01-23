@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-const SideDrawer = ({ show, openModal }) => {
+const SideDrawer = ({ show, openModal, user, logout }) => {
   let openClass = show === true ? 'open' : '';
 
   return (
@@ -17,9 +17,21 @@ const SideDrawer = ({ show, openModal }) => {
         <li>
           <NavLink to='/how'>How It Works</NavLink>
         </li>
-        <li>
-          <a onClick={openModal}>Login / Sign Up</a>
-        </li>
+        {!user && (
+          <React.Fragment>
+            <li>
+              <a onClick={() => openModal('login')}>Login</a>
+            </li>
+            <li>
+              <a onClick={() => openModal('signup')}>Sign Up</a>
+            </li>
+          </React.Fragment>
+        )}
+        {user && (
+          <li>
+            <a onClick={logout}>Logout</a>
+          </li>
+        )}
       </ul>
     </nav>
   );
@@ -27,7 +39,9 @@ const SideDrawer = ({ show, openModal }) => {
 
 SideDrawer.propTypes = {
   show: PropTypes.bool.isRequired,
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  logout: PropTypes.func.isRequired
 };
 
 export default SideDrawer;
