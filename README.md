@@ -5,7 +5,7 @@ v 1.0 Jan 2019
 
 ## Getting Started
 
-The solution contains all de build pipeline necessary to deploy the Front End App, Web API and Database. Follow the instructions in the installing section in order to run the Solution in your dev machine
+The solution contains all de build pipeline necessary to deploy the Front End App, Web API and Database. Follow the instructions in order to run the Solution in your dev machine
 
 ### Front End App
 
@@ -23,11 +23,9 @@ Finally, run the following command in order to run the application in your local
     npm run dev
 ```
 
+The Front End is configured to fetch data from the Back-End, so please start the Web API Project in order to run the solution smoothly.
+
 ### Web API
-
-The API is protected by a JWT Token authentication schema, in order to access this API you will first need to Authorize your self.
-
-In order to authenticate, you will need to send an HTTP Request via Postman or any HTTP Request method that you like.
 
 In order to run the Api project, cd into the Api folder and run
 
@@ -36,7 +34,7 @@ npm run dev
 
 ```
 
-You may find that the project encounters an error before executing the solution pipeline given that there are some environment variables that you first need to set up.
+You may find that the project encounters an error before executing the solution pipeline given that there are some environment variables that you first must set up.
 
 First set:
 
@@ -51,13 +49,15 @@ If you are using windows command line:
     set ruleOfThumb_jwtPrivateKey=<AnyPrivateKeyHere>
     set ruleOfThumb_db=<AnyMongoDbConnectionString>
 
-If you are using Windows Powershell
+If you are using Windows Powershell:
 
     $env:ruleOfThumb_jwtPrivateKey="<AnyPrivateKeyHere>"
     $env:ruleOfThumb_db="<AnyMongoDbConnectionString>"
 ```
 
-To user a local mongo db database just type: 'mongodb://localhost:/rule-of-thumb'
+Then run again the dev command.
+
+To user a local MongoDB database just type: 'mongodb://localhost:/rule-of-thumb'. Also don't forget to run `mongod` if you are using your local instance of MongoDB.
 
 #### Seed database
 
@@ -69,7 +69,13 @@ After setting the environment variables run the following command in the Api fol
 
 This will seed the database with some initial information
 
+By default, the API Port is port 5000, you can change this in the server.js file or add a PORT environment variable with your desired port number (if you change the default port number, don't forget to point to the right port in the front-end as well),
+
 #### Authentication
+
+The API is protected by a JWT Token authentication schema, to access this API you will first need to Authorize yourself.
+
+In order to authenticate, you will need to send an HTTP Request via Postman or any HTTP Request method that you like.
 
 ```
 
@@ -86,7 +92,7 @@ Body:
 
 ```
 
-The if the user name and password are correct, the service will respond with a body containing the JWT Token and its expiration date. The token is valid for 30 minutes until you have to renew it.
+The if the user name and password are correct, the service will respond with a body containing the JWT Token.
 
 ```
 Response example:
@@ -107,10 +113,6 @@ For a request in your local machine:
 https://localhost:{port}/api/candidates
 
 Method: GET
-
-Headers:
-
-x-auth-token - {JWT Token}
 
 ```
 
