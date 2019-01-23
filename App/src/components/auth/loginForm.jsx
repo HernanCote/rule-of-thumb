@@ -43,6 +43,7 @@ class LoginForm extends Form {
     return (
       <div className='login-form'>
         <h1>Login</h1>
+        {this.props.children}
         <form onSubmit={this.handleSubmit}>
           {this.renderInput('email', 'Email', 'text', true)}
           {this.renderInput('password', 'Password', 'password')}

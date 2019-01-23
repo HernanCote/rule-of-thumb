@@ -61,8 +61,22 @@ class App extends Component {
   };
 
   renderModal = currentModal => {
-    if (currentModal === 'login') return <LoginForm />;
-    else if (currentModal === 'signup') return <SignupForm />;
+    if (currentModal === 'login')
+      return (
+        <LoginForm>
+          <div className='login-signup'>
+            Or <a onClick={this.handleModalChange}>{this.renderAuthAction()}</a>
+          </div>
+        </LoginForm>
+      );
+    else if (currentModal === 'signup')
+      return (
+        <SignupForm>
+          <div className='login-signup'>
+            Or <a onClick={this.handleModalChange}>{this.renderAuthAction()}</a>
+          </div>
+        </SignupForm>
+      );
     else return <span />;
   };
 
@@ -108,10 +122,6 @@ class App extends Component {
         />
         <Modal show={this.state.showModal} handleClose={this.handleModalClose}>
           <React.Fragment>
-            <div className='login-signup'>
-              Or{' '}
-              <a onClick={this.handleModalChange}>{this.renderAuthAction()}</a>
-            </div>
             {this.renderModal(this.state.currentModal)}
           </React.Fragment>
         </Modal>
