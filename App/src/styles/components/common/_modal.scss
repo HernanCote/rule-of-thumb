@@ -35,7 +35,7 @@
 
   .login-signup {
     a {
-      color: rgb(41, 41, 138);
+      color: lighten($color: $black, $amount: 10);
       cursor: pointer;
       &:hover {
         text-decoration: underline;
