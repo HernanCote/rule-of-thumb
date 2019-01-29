@@ -16,13 +16,13 @@ class Votes extends Component {
 
   render() {
     return (
-      <div className='votes'>
+      <section className='votes home__votes container'>
         <h1 className='votes__label'>Votes</h1>
         <VotesList
           candidates={this.state.candidates}
           refreshCandidatesData={this.refreshCandidatesData}
         />
-      </div>
+      </section>
     );
   }
 }

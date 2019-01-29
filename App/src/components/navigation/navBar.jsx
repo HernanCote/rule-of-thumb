@@ -32,7 +32,9 @@ class NavBar extends Component {
             <DrawerToggleButton click={onDrawerToggleClick} />
           </div>
           <div className='navbar__branding'>
-            <NavLink to='/'>Rule of Thumb.</NavLink>
+            <h1>
+              <NavLink to='/'>Rule of Thumb.</NavLink>
+            </h1>
           </div>
           <div className='space' />
           <div className='navbar_navigation-items'>

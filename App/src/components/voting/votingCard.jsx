@@ -149,6 +149,7 @@ class VotingCard extends Component {
       return (
         <div className='interaction'>
           <button
+            name='vote'
             className='interaction__vote-button'
             onClick={this.handleVoteAgain}
           >

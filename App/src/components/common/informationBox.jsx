@@ -11,7 +11,10 @@ class InformationBox extends Component {
 
   render() {
     return (
-      <div className='information-box' style={{ display: this.state.visible }}>
+      <article
+        className='information-box home__information container'
+        style={{ display: this.state.visible }}
+      >
         <div className='information-box__sub-text'>
           <div>Speak Out. Be Heard.</div>
           <div>Be Counted</div>
@@ -25,7 +28,7 @@ class InformationBox extends Component {
         <div className='information-box__close' onClick={this.handleCloseClick}>
           <i className='fas fa-times' />
         </div>
-      </div>
+      </article>
     );
   }
 }

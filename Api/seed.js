@@ -5,7 +5,7 @@ const config = require('config');
 const data = [
   {
     name: 'Kanye West',
-    imageUrl: 'kanye.png',
+    imageUrl: 'kanye.jpg',
     offset: '1 month ago',
     industry: 'Entertainment',
     information:
@@ -13,7 +13,7 @@ const data = [
   },
   {
     name: 'Mark Zuckerberg',
-    imageUrl: 'mark.png',
+    imageUrl: 'mark.jpg',
     offset: '1 month ago',
     industry: 'Business',
     information:
@@ -21,7 +21,7 @@ const data = [
   },
   {
     name: 'Cristina Fernándes de Kirchner',
-    imageUrl: 'kristina.png',
+    imageUrl: 'kristina.jpg',
     offset: '1 month ago',
     industry: 'Politics',
     information:
@@ -29,7 +29,7 @@ const data = [
   },
   {
     name: 'Malala Yousafzai',
-    imageUrl: 'malala.png',
+    imageUrl: 'malala.jpg',
     offset: '1 month ago',
     industry: 'Entertainment',
     information:

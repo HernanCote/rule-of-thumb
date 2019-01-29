@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 
 const DrawerToggleButton = ({ click }) => {
   return (
-    <button className='toggle-button' onClick={click}>
+    <button className='toggle-button' onClick={click} aria-label='Open'>
       <div className='toggle-button__line' />
       <div className='toggle-button__line' />
       <div className='toggle-button__line' />

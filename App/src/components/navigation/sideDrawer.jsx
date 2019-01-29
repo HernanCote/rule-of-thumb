@@ -6,7 +6,7 @@ const SideDrawer = ({ show, openModal, user, logout }) => {
   let openClass = show === true ? 'open' : '';
 
   return (
-    <nav className={`side-drawer ${openClass}`}>
+    <aside className={`side-drawer ${openClass}`}>
       <ul>
         <li>
           <NavLink to='/home'>Home</NavLink>
@@ -28,7 +28,7 @@ const SideDrawer = ({ show, openModal, user, logout }) => {
           </li>
         )}
       </ul>
-    </nav>
+    </aside>
   );
 };
 

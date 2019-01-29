@@ -2,7 +2,7 @@ import React from 'react';
 
 const SugestionsBox = () => {
   return (
-    <div className='sugestions-box'>
+    <article className='sugestions-box home_sugestions container'>
       <div className='sugestions-box__content'>
         <div className='sugestions-box__content__label'>
           Is there anyone else you would want us to add?
@@ -13,7 +13,7 @@ const SugestionsBox = () => {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

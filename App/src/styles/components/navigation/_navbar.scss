@@ -26,6 +26,12 @@
 
   &__branding {
     margin-left: 1rem;
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 400;
+    }
+
     a {
       color: darken($white, 15);
       font-size: 1.9rem;

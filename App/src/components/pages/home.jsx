@@ -20,15 +20,9 @@ class Home extends Component {
             </div>
           </div>
         </section>
-        <section className='home__information container'>
-          <InformationBox />
-        </section>
-        <section className='home__votes container'>
-          <Votes />
-        </section>
-        <section className='home_sugestions container'>
-          <SugestionsBox />
-        </section>
+        <InformationBox />
+        <Votes />
+        <SugestionsBox />
       </React.Fragment>
     );
   }
